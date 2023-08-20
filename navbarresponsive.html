@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive navbar</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        list-style: none;
+    }
+
+    body {
+        background-color: rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+
+    header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        background: #334155;
+    }
+
+    .logo img {
+        width: 40px;
+        filter: invert(100%);
+    }
+
+    header ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-basis: 44%;
+        /* gives initial width */
+    }
+
+    header nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    ul li:not(:last-child) a:hover,
+    ul li a.active {
+        text-decoration: underline 2px;
+        /* it gives the underline and width of 2px*/
+        text-underline-offset: 4px;
+        /* it makes it under the line upto 4px */
+        /* color: blue;  */
+        text-decoration-color: aqua;
+    }
+
+    .login-btn {
+        font-weight: 700;
+        padding: 8px 20px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        background-color: #4ca8e1;
+        border-radius: 4px;
+
+    }
+
+    .hamburger {
+        font-size: 30px;
+        color: white;
+        display: none;
+    }
+
+    .bx bxs-x-circle {
+        display: none;
+    }
+
+    @media screen and (max-width:1024px) {
+        .hamburger {
+            display: flex;
+            cursor: pointer;
+        }
+
+        nav ul {
+            display: none;
+        }
+
+        ul.ham_active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 60px;
+            background-color: #30363f;
+            width: 100%;
+            gap: 24px;
+            left: 0;
+            height: 320px;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Blue Abstract Corporate YouTube Thumbnail-modified.png" alt="">
+            </div>
+            <ul>
+                <li><a href="" class="active">Home</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Products</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="" class="login-btn">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class='bx bx-menu'></i>
+
+            </div>
+        </nav>
+    </header>
+</body>
+<script>
+    const hamburger = document.querySelector('.hamburger i');
+    const ul = document.querySelector('nav ul');
+
+    hamburger.addEventListener('click', () => {
+        ul.classList.toggle('ham_active');
+        // asdfdfj
+
+        if (ul.classList.contains('ham_active')) {
+            hamburger.classList.replace('bx-menu', 'bxs-x-circle');
+        } else {
+            hamburger.classList.replace('bxs-x-circle', 'bx-menu');
+        }
+    });
+
+</script>
+
+</html>
